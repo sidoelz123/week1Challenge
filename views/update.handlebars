@@ -1,0 +1,67 @@
+<div>
+      <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
+        <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
+          <div class="mb-4">
+            <h1 class="font-serif text-3xl font-bold underline decoration-gray-400">
+              Edit Buku PLUG-IN
+          </div>
+
+          <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
+            <form method="PUT" action="/update/{{id_buku}}">
+            {{#each data}}
+              <div>
+                <h3 class="block text-sm font-bold text-gray-700" for="title">
+                  Judul
+                </h3>
+                <input
+                  class="block w-full mt-1 border border-gray-300 rounded-md shadow-lg placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="text" name="judul" value="{{data.judul}}"/>
+              </div>
+
+              <div class="mt-4">
+                <h3 class="block text-sm font-bold text-gray-700" for="title">
+                  Penulis
+                </h3>
+
+                <input
+                  class="block w-full mt-1 border border-gray-300 rounded-md shadow-lg placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="text" name="penulis"  />
+              </div>
+              <div class="mt-4" >
+                <h3 class="block text-sm font-bold text-gray-700" for="title">
+                  Kategori
+                </h3>
+
+                <select class="block w-full mt-1 border border-gray-300 rounded-md shadow-lg placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  type="text" name="kategori">
+                      
+                    
+                      <option selected value="{{data.id_kategori}}">{{data.nama_kategori}}</option>
+                      <option value="{{id_kategori}}">{{nama_kategori}}</option>
+                   
+                </select>
+              </div>
+
+                           
+              <div class="mt-4">
+                <label class="block text-sm font-bold text-gray-700" for="password">
+                  Deskripsi Buku
+                </label>
+                <textarea name="deskripsi"
+                  class="block w-full mt-1 border py-1 border-gray-300 rounded-md shadow-lg placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  rows="4" ></textarea>
+              </div>
+
+              <div class="flex items-center justify-start mt-4 gap-x-2">
+                <button type="submit"
+                  class="px-6 py-2 text-sm font-semibold rounded-md shadow-md text-sky-100 bg-sky-500 hover:bg-sky-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300">
+                  Update
+                </button>
+                <div class="px-6 py-2 text-sm font-semibold text-gray-100 bg-gray-400 rounded-md shadow-md hover:bg-gray-600 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300"><a href="/" >Cancel</a></div>
+              </div>
+              {{/each}}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
