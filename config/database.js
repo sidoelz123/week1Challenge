@@ -2,6 +2,10 @@ const mysql = require('mysql');
 
 // konfigurasi database
 const con = mysql.createConnection({
+  // host: "remotemysql.com",
+  // user: "FSVCdvZQGw",
+  // password: "eXEUGgsoNT",
+  // database: "FSVCdvZQGw",
   host: "localhost",
   user: "root",
   password: "ijaa",
