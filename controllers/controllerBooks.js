@@ -56,38 +56,40 @@ exports.createBooks = function(req,res){
 
 // Update Books
 exports.editBooks=function(req,res){
-    let buku_id = req.params.buku_id;
+    let buku_id = req.params.id;
     
-    connection.query('SELECT * FROM buku WHERE id_buku=?;',
+    connection.query('SELECT * FROM buku INNER JOIN kategori ON buku.kategori_id = kategori.id_kategori WHERE id_buku=?;',
     [buku_id], 
     function (error, rows, fields){
         if(error){
             console.log(error)
         }else{
-            
-            res.render('update',{data:rows[0]})
+            res.render('update',{data:rows},{data2:fields})
         }
     });
 };
 
 exports.updateBooks = function(req, res) {
 
-    let buku_id=req.body.buku_id;
+    let buku_id=req.params.id;
     let judul = req.body.judul;
     let penulis = req.body.penulis;
     let deskripsi = req.body.deskripsi;
     let kategori = req.body.kategori;
 
-    connection.query('UPDATE buku SET judul = ?, penulis = ?, deskripsi = ? , kategori = ? WHERE id_buku = ?' ,
+    connection.query('UPDATE buku SET judul = ?, penulis = ?, deskripsi = ? , kategori_id = ? WHERE id_buku = ?' ,
     [judul,penulis,deskripsi,kategori,buku_id],
         function(error,rows,fields){
             if(error){
                 console.log(error)
             }else{
-                response.ok("Berhasil Menambahkan Buku!!", res)
+                // response.ok("Berhasil Menambahkan Buku!!", res)
+                res.redirect('/')
+                // console.log([judul,penulis,deskripsi])
             }
             
     });
+
 };
 
 // Read Books

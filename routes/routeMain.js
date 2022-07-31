@@ -21,8 +21,8 @@ module.exports = function(app) {
     // Update Books by ID
     app.route('/edit/:id')
         .get(ujianChunnin.editBooks);
-    app.route('/update')
-        .put(ujianChunnin.updateBooks);
+    app.route('/update/:id')
+        .post(ujianChunnin.updateBooks);
 
     // Delete Books by ID
     app.route('/delete/:id')

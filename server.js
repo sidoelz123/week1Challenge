@@ -1,7 +1,7 @@
 const express = require('express'),
     path = require('path'),
     app = express(),
-    port = process.env.PORT || 8000,
+    port = process.env.PORT || 4040,
     bodyParser = require('body-parser'),
     controller = require('./controllers/controllerBooks'),
     controller2 = require('./controllers/controllerCategories');
